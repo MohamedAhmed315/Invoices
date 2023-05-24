@@ -51,6 +51,6 @@ export class CurrencySummaryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.getCurrency();
+    this.getCurrency();
   }
 }
