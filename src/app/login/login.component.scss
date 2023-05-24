@@ -1,0 +1,107 @@
+@import '../../assets/css/variables';
+@import '../../assets/css/media-query';
+
+#login {
+    // logo
+    .img-container {
+        width: 100px;
+        height: auto;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    // Title
+    #title {
+        color: $main-purple;
+        font-style: italic;
+        font-size: 1.5rem;
+        font-weight: 900;
+        text-transform: capitalize;
+        margin: 1rem 0 4rem 0;
+    }
+
+    // Form
+    #login-form {
+        width: 70%;
+        padding: 70px 50px;
+        border: solid 1px $border-grey;
+        border-radius: $button-border-radius;
+
+        @include media-breakpoint-down(md) {
+            width: 100%;
+        }
+
+        h2 {
+            color: $main-purple;
+            text-transform: capitalize;
+            font-weight: 900;
+            font-size: 1.5rem;
+            text-align: start;
+            margin-bottom: 1.5rem;
+        }
+
+        form {
+            text-align: start;
+
+            #login-btn-container {
+                text-align: center !important;
+            }
+
+            label {
+                color: $main-purple;
+                text-transform: capitalize;
+                font-weight: 900;
+                font-size: 1rem;
+            }
+
+            input {
+                border-radius: $button-border-radius;
+                padding-left: 1rem;
+
+                &:active,
+                &:focus {
+                    box-shadow: none;
+                    outline: 0;
+                    border-color: $main-purple;
+                }
+            }
+
+            // Placeholder Color
+            ::placeholder {
+                color: $border-grey;
+                opacity: 1;
+            }
+
+            :-ms-input-placeholder {
+                color: $border-grey;
+            }
+
+            ::-ms-input-placeholder {
+                color: $border-grey;
+            }
+
+            button[type='submit'] {
+                text-transform: capitalize;
+                color: #fff;
+                background-color: $main-purple;
+                border-color: $main-purple;
+                border-radius: $button-border-radius;
+                width: 50%;
+                margin: 1.5rem 0;
+
+                @include media-breakpoint-down(lg) {
+                    width: 100%;
+                }
+            }
+
+            a {
+                color: $main-purple;
+                text-decoration: none;
+                font-weight: 500;
+            }
+        }
+    }
+}

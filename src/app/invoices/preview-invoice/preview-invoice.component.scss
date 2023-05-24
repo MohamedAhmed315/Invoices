@@ -1,0 +1,212 @@
+@import '../../../assets/css/variables';
+@import '../../../assets/css/media-query';
+
+#preview-invoice {
+    padding: 1rem 1.5rem 0;
+    position: relative;
+
+    h1 {
+        color: $main-purple;
+        text-transform: capitalize;
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+
+    #top-bar {
+        display: flex;
+        justify-content: space-between;
+        background-color: $main-purple;
+        padding: 1rem;
+
+        #back {
+            width: fit-content;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            a {
+                img {
+                    width: 15px;
+                    margin-right: 0.5rem;
+                }
+            }
+
+            label {
+                color: white;
+                font-weight: 600;
+                font-size: 1rem;
+            }
+        }
+
+        #options {
+            display: flex;
+            align-items: center;
+
+            .dropdown {
+                button {
+                    background-color: transparent;
+                    color: $border-grey;
+                    border: none;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                }
+
+                ul {
+                    padding: 0;
+                    border-radius: $dropdown-border-radius;
+                    overflow: hidden;
+
+                    &.dropdown-menu {
+                        li {
+                            cursor: pointer;
+                            border-top: dashed 1px $border-grey;
+
+                            &:first-child {
+                                border-top: none;
+                            }
+
+                            a {
+                                padding: 0.8rem 0.8rem;
+                                text-align: start;
+                                font-size: 1rem;
+                                font-weight: 500;
+                                text-transform: capitalize;
+                                display: flex;
+                                align-items: center;
+
+                                &.dropdown-item {
+                                    &:active {
+                                        background-color: $main-purple;
+                                        color: #fff;
+                                    }
+
+                                    &:hover {
+                                        background-color: $main-purple;
+                                        color: #fff;
+                                    }
+                                }
+
+                                img {
+                                    width: 15px;
+                                    margin-right: 0.5rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            #export-print {
+                display: flex;
+
+                a {
+                    display: flex;
+                    justify-content: center;
+                    width: 150px;
+                    padding: 1px 5px;
+                    font-size: 1rem;
+                    border-radius: $dropdown-border-radius;
+                    border: solid 1px;
+
+                    &#export-btn {
+                        color: #fff;
+                        border-color: #fff;
+                        margin: auto 1rem;
+                    }
+
+                    &#print-btn {
+                        color: $main-purple;
+                        background-color: #fff;
+                        border-color: #fff;
+                    }
+
+                    img {
+                        width: 10px;
+                        margin-right: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    #from-to {
+        border: solid 2px $border-grey;
+
+        .row {
+            width: 100%;
+            justify-content: center;
+            margin: auto;
+
+            &:first-child {
+                .col-md-6 {
+                    padding: 1.5rem;
+
+                    &:first-child {
+                        border-right: solid 2px $border-grey;
+
+                        @include media-breakpoint-down (md) {
+                            border-right: none;
+                            border-bottom: solid 2px $border-grey;
+                        }
+                    }
+
+
+                    p {
+                        color: $text-black;
+
+                        &.company-name {
+                            font-weight: 600;
+                            font-size: 1.5rem;
+                        }
+
+                        &.company-address {
+                            font-size: 1rem;
+                        }
+
+                        .title {
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #details {
+        padding: 1.5rem;
+        border: solid 2px $border-grey;
+        border-top: none;
+
+        table {
+            color: $text-black;
+
+            @include media-breakpoint-down (md) {
+                width: 100%;
+            }
+
+            tr {
+                th {
+                    color: $main-purple;
+                    text-transform: capitalize;
+                    width: 15%;
+
+                    @include media-breakpoint-down (xl) {
+                        width: 20%;
+                    }
+
+                    @include media-breakpoint-down (md) {
+                        width: 33%;
+                    }
+                }
+
+                td {
+                    &.total-amount {
+                        font-size: 1.2rem;
+                        color: #000;
+                    }
+                }
+            }
+        }
+    }
+}

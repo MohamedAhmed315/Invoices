@@ -1,0 +1,65 @@
+@import '../../../assets/css/variables';
+@import '../../../assets/css/media-query';
+
+#preview-expense {
+    a {
+        margin: auto 0.2rem;
+        cursor: pointer;
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+::ng-deep .modal {
+    .modal-content {
+        padding: 2rem 2rem;
+        border-radius: $button-border-radius;
+
+        .modal-header {
+            border: none;
+
+            .modal-title {
+                text-transform: capitalize;
+                color: $main-purple;
+                font-size: 1.5rem;
+                font-weight: 600;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            button {
+                background: transparent url("../../../assets/img/x.svg") center/1em auto no-repeat;
+            }
+        }
+
+        .modal-body {
+            table {
+                tr {
+                    line-height: 25px;
+                    min-height: 25px;
+                    height: 25px;
+
+                    td {
+                        font-size: 1rem;
+                        color: $text-black;
+
+                        &:first-child {
+                            color: $main-purple;
+                            text-transform: capitalize;
+                            width: 150px;
+                            font-weight: 500;
+                        }
+
+                        &.currency {
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

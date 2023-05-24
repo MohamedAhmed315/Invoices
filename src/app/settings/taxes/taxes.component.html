@@ -1,0 +1,38 @@
+
+<div class="inner-content">
+<app-new-tax></app-new-tax>
+
+    <table class="table table-bordered text-center">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Rate</th>
+                <th scope="col">Default</th>
+                <th scope="col">Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr
+                *ngFor="let item of taxes | paginate: { itemsPerPage: itemPerPage, currentPage: page_number }; let i = index;">
+                <th scope="row"> {{ itemPerPage * (page_number - 1) + i + 1 }} </th>
+                <td class="capitalize">{{ item.name }}</td>
+                <td class="capitalize">{{ item.rate }}</td>
+
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="default-tax">
+                    </div>
+                </td>
+
+                <td class="actions">
+                    <app-edit-tax></app-edit-tax>
+                    <app-delete-tax></app-delete-tax>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls class="invoice-pagination" (pageChange)="page_number = $event"></pagination-controls>
+</div>

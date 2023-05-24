@@ -1,0 +1,98 @@
+<div id="expenses">
+    <div class="container-fluid p-0">
+        <app-new-expense></app-new-expense>
+        <div id="selections">
+            <div class="row w-100">
+                <div class="col-lg-6 d-flex flex-column flex-sm-row align-items-baseline my-2 p-0">
+                    <h3 class="">Show: </h3>
+                    <!-- Date Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            {{ date_value }}
+                        </button>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" #refEl1 (click)='change_date_value(refEl1)'>all</a>
+                            </li>
+                            <li><a class="dropdown-item" #refEl2 (click)='change_date_value(refEl2)'>This Month</a>
+                            </li>
+                            <li><a class="dropdown-item" #refEl3 (click)='change_date_value(refEl3)'>Last Month</a>
+                            </li>
+                            <li><a class="dropdown-item" #refEl4 (click)='change_date_value(refEl4)'>from (date)</a>
+                            </li>
+                            <li><a class="dropdown-item" #refEl5 (click)='change_date_value(refEl5)'>to (date)</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Type Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            {{ type_value }}
+                        </button>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" #refEl5 (click)='change_type_value(refEl5)'>all</a></li>
+                            <li><a class="dropdown-item" #refEl6 (click)='change_type_value(refEl6)'>Services</a></li>
+                            <li><a class="dropdown-item" #refEl7 (click)='change_type_value(refEl7)'>Maintainence</a></li>
+                            <li><a class="dropdown-item" #refEl8 (click)='change_type_value(refEl8)'>Salary</a></li>
+                            <li><a class="dropdown-item" #refEl8 (click)='change_type_value(refEl8)'>Project</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-block d-lg-flex p-0 my-2">
+                    <div class="search ms-auto">
+                        <input type="text" name="search-input" id="search-input" placeholder="Search...">
+                        <button>
+                            <img src="../../assets/img/search-solid.svg" alt="">
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Date / Time</th>
+                    <th scope="col">Client</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Currency</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr
+                    *ngFor="let expense of expenses | paginate: { itemsPerPage: itemPerPage, currentPage: page_number }; let i = index;">
+                    <th scope="row"> {{ itemPerPage * (page_number - 1) + i + 1 }} </th>
+                    <td class="capitalize">{{ expense.date }}</td>
+                    <td class="capitalize">{{ expense.client }}</td>
+                    <td class="capitalize">{{ expense.type }}</td>
+                    <td class="uppercase">{{ expense.desc }}</td>
+                    <td>{{ expense.currency }}</td>
+                    <td>{{ expense.total }}</td>
+                    
+                    <td class="actions">
+                        <app-preview-expense></app-preview-expense>
+
+                        <app-edit-expense></app-edit-expense>
+                        
+                        <app-delete-expense></app-delete-expense>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <pagination-controls class="invoice-pagination" (pageChange)="page_number = $event"></pagination-controls>
+    </div>
+</div>

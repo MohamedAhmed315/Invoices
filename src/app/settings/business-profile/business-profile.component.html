@@ -1,0 +1,81 @@
+<div class="inner-content">
+
+    <div class="row mt-4">
+        <label class="col-lg-1 col-form-label">Role</label>
+        <div class="col-lg-11">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    {{ type_value }}
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" #refEl1
+                            (click)='change_type_value(refEl1)'>Adminstrator</a>
+                    </li>
+                    <li><a class="dropdown-item" #refEl2 (click)='change_type_value(refEl2)'>Leader</a>
+                    </li>
+                    <li><a class="dropdown-item" #refEl3 (click)='change_type_value(refEl3)'>User</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <label for="settings-name" class="col-lg-1 col-form-label">Name</label>
+        <div class="col-lg-11">
+            <input type="text" class="form-control" id="settings-name" name="settings-name"
+                placeholder="Name" required>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <label for="settings-address" class="col-lg-1 col-form-label">Address</label>
+        <div class="col-lg-11">
+            <input type="text" class="form-control" id="settings-address" name="settings-address"
+                placeholder="Address" required>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <label for="settings-email" class="col-lg-1 col-form-label">Email</label>
+        <div class="col-lg-11">
+            <input type="text" class="form-control" id="settings-email" name="settings-email"
+                placeholder="Email" required>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <label for="settings-phone" class="col-lg-1 col-form-label">Phone</label>
+        <div class="col-lg-11">
+            <input type="text" class="form-control" id="settings-phone" name="settings-phone"
+                placeholder="Phone" required>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <label for="settings-fax" class="col-lg-1 col-form-label">Fax</label>
+        <div class="col-lg-11">
+            <input type="text" class="form-control" id="settings-fax" name="settings-fax"
+                placeholder="Fax" required>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <label for="settings-website" class="col-lg-1 col-form-label">Website</label>
+        <div class="col-lg-11">
+            <input type="text" class="form-control" id="settings-website" name="settings-website"
+                placeholder="Website" required>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <label for="settings-taxid" class="col-lg-1 col-form-label">Tax ID</label>
+        <div class="col-lg-11">
+            <input type="number" class="form-control" id="settings-taxid" name="settings-taxid"
+                placeholder="Tax ID" required>
+        </div>
+    </div>
+
+</div>

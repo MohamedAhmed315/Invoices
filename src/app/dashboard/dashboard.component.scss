@@ -1,0 +1,40 @@
+@import '../../assets/css/variables';
+@import '../../assets/css/media-query';
+
+#dashboard {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+
+    #recent-activity-section,
+    #clients-section,
+    #team-section {
+        border: solid 2px $border-grey;
+        border-left: none;
+        padding: 1rem 1.5rem;
+    }
+
+    #clients-section,
+    #team-section,
+    #expenses-section {
+        border-left: none;
+        padding: 1rem 1.5rem;
+
+        @include media-breakpoint-down (md) {
+            border-top: none;
+        }
+    }
+
+    #row2 {
+        border-bottom: solid 2px $border-grey;
+
+        #invoices-section {
+            border-top: none;
+            border-right: solid 2px $border-grey;
+            padding: 1rem 1.5rem;
+        }
+
+        #currency-section {
+            padding: 1rem 1.5rem;
+        }
+    }
+}

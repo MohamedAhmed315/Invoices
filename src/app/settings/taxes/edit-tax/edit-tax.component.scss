@@ -1,0 +1,116 @@
+@import '../../../../assets/css/variables';
+@import '../../../../assets/css/media-query';
+
+#edit-tax {
+    a {
+        margin: auto 0.2rem;
+        cursor: pointer;
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+::ng-deep .modal {
+    .modal-content {
+        padding: 2rem 2rem;
+        border-radius: $button-border-radius;
+    }
+
+    .modal-header {
+        border: none;
+
+        .modal-title {
+            text-transform: capitalize;
+            color: $main-purple;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        button {
+            background: transparent url("../../../../assets/img/x.svg") center/1em auto no-repeat;
+        }
+    }
+
+    .modal-body {
+        form {
+            text-align: start;
+
+            label {
+                color: $main-purple;
+                text-transform: capitalize;
+                font-weight: 900;
+                font-size: 1rem;
+            }
+
+            input {
+                border-radius: $button-border-radius;
+                padding-left: 1rem;
+
+                &:active,
+                &:focus {
+                    box-shadow: none;
+                    outline: 0;
+                    border-color: $main-purple;
+                }
+            }
+
+            // Placeholder Color
+            ::placeholder {
+                color: $border-grey;
+                opacity: 1;
+            }
+
+            :-ms-input-placeholder {
+                color: $border-grey;
+            }
+
+            ::-ms-input-placeholder {
+                color: $border-grey;
+            }
+        }
+    }
+
+    .modal-footer {
+        border: none;
+        justify-content: center;
+
+        button {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            padding-right: 7rem;
+            padding-left: 7rem;
+            margin: auto 1rem;
+            width: fit-content;
+
+            &#edit {
+                background-color: $main-purple;
+                border-radius: $button-border-radius;
+                border-color: $main-purple;
+                color: #fff;
+            }
+
+            &#cancel {
+                background-color: #fff;
+                color: $main-purple;
+                border: none;
+                padding-right: 1rem;
+                padding-left: 1rem;
+            }
+        }
+    }
+
+    #ok {
+        width: 10rem;
+        margin: auto;
+        background-color: $main-purple;
+        border-color: $main-purple;
+        font-size: 1rem;
+        color: #fff;
+        font-weight: 600;
+        border-radius: $button-border-radius;
+    }
+}

@@ -1,0 +1,82 @@
+<div id="invoices-summary">
+
+    <div class="row">
+        <div class="col-lg-6 col-xl-6">
+            <div id="selections">
+                <h1 class="me-4">invoices</h1>
+                <!-- Filter Dropdown -->
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        {{ filter_value }}
+                    </button>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" #refEl1 (click)='change_filter_value(refEl1)'>This Month</a>
+                        </li>
+                        <li><a class="dropdown-item" #refEl2 (click)='change_filter_value(refEl2)'>Last Month</a>
+                        </li>
+                        <li><a class="dropdown-item" #refEl3 (click)='change_filter_value(refEl3)'>This Year</a>
+                        </li>
+                        <li><a class="dropdown-item" #refEl4 (click)='change_filter_value(refEl4)'>Last Year</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Currency Dropdown -->
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        {{ currency_value }}
+                    </button>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" #refEl5 (click)='change_currency_value(refEl5)'>EGP</a></li>
+                        <li><a class="dropdown-item" #refEl6 (click)='change_currency_value(refEl6)'>USD</a></li>
+                        <li><a class="dropdown-item" #refEl7 (click)='change_currency_value(refEl7)'>EUR</a></li>
+                        <li><a class="dropdown-item" #refEl8 (click)='change_currency_value(refEl8)'>GBP</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="invoices-prices">
+                <div class="row">
+                    <div class="col-6">
+                        <label>Total (<span>8</span>)</label>
+                        <h4>234,304 EGP</h4>
+                    </div>
+                    <div class="col-6">
+                        <label>Collected (<span>6</span>)</label>
+                        <h4>220,304 EGP</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label>Outstanding (<span>2</span>)</label>
+                        <h4>14,000 EGP</h4>
+                    </div>
+                    <div class="col-6">
+                        <label>Overdue (<span>1</span>)</label>
+                        <h4>4,000 EGP</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-6">
+            <!-- Charts -->
+            <div class="charts">
+                <div class="row">
+                    <div class=" col-md-6 overflow-hidden">
+                        <google-chart [data]="chart_data1" [type]="chart_type1" [options]="options1"></google-chart>
+                    </div>
+                    <div class=" col-md-6 overflow-hidden">
+                        <google-chart [data]="chart_data2" [type]="chart_type2" [options]="options2"></google-chart>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

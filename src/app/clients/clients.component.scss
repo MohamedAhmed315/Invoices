@@ -1,0 +1,52 @@
+@import '../../assets/css/variables';
+
+#clients-list {
+    padding: 1rem 1.5rem;
+
+    // Table
+    .table {
+        thead {
+            border-color: $main-purple;
+            color: $main-purple;
+        }
+
+        tr {
+            td {
+                &.actions {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    a {
+                        margin: auto 0.5rem;
+                        cursor: pointer;
+
+                        img {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+
+                &.capitalize {
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+
+    // Pagination Styles
+    .team-pagination {
+        font-family: BellotaText-Regular, sans-serif;
+        font-size: 1rem;
+
+        ::ng-deep {
+            .ngx-pagination {
+                .current {
+                    background: $main-purple;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}

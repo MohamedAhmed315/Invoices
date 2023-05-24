@@ -1,0 +1,33 @@
+<app-new-team-member></app-new-team-member>
+
+<div id="team-list">
+    <table class="table table-bordered text-center">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Role</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email Address</th>
+                <th scope="col">Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr
+                *ngFor="let item of collection | paginate: { itemsPerPage: itemPerPage, currentPage: page_number }; let i = index;">
+                <th scope="row"> {{ itemPerPage * (page_number - 1) + i + 1 }} </th>
+                <td class="capitalize">{{ item.role }}</td>
+                <td class="capitalize">{{ item.name }}</td>
+
+                <td>{{ item.email }}</td>
+                <td class="actions">
+                    <app-edit-team-member></app-edit-team-member>
+                    <app-delete-team-member></app-delete-team-member>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls class="team-pagination" (pageChange)="page_number = $event"></pagination-controls>
+
+</div>

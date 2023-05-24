@@ -1,0 +1,189 @@
+@import '../../../assets/css/variables';
+@import '../../../assets/css/media-query';
+
+#add-new-team-member {
+    border-top: solid 2px $border-grey;
+    margin-top: 2rem;
+    padding: 1rem 1.5rem;
+
+    #new-team-member-btn {
+        display: flex;
+        justify-content: space-between;
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 600;
+        padding-right: 2.5rem;
+        padding-left: 2.5rem;
+        width: fit-content;
+        border-radius: $button-border-radius;
+        border-color: $main-purple;
+        background-color: $main-purple;
+
+        img {
+            width: 15px;
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+::ng-deep .modal {
+    .modal-content {
+        padding: 2rem 2rem;
+        border-radius: $button-border-radius;
+    }
+
+    .modal-header {
+        border: none;
+
+        .modal-title {
+            text-transform: capitalize;
+            color: $main-purple;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        button {
+            background: transparent url("../../../assets/img/x.svg") center/1em auto no-repeat;
+        }
+    }
+
+    .modal-body {
+        form {
+            text-align: start;
+
+            label {
+                color: $main-purple;
+                text-transform: capitalize;
+                font-weight: 900;
+                font-size: 1rem;
+            }
+
+            input {
+                border-radius: $button-border-radius;
+                padding-left: 1rem;
+
+                &:active,
+                &:focus {
+                    box-shadow: none;
+                    outline: 0;
+                    border-color: $main-purple;
+                }
+            }
+
+            // Placeholder Color
+            ::placeholder {
+                color: $border-grey;
+                opacity: 1;
+            }
+
+            :-ms-input-placeholder {
+                color: $border-grey;
+            }
+
+            ::-ms-input-placeholder {
+                color: $border-grey;
+            }
+
+            // Role Dropdown
+            .dropdown {
+                button {
+                    background-color: transparent;
+                    color: $text-grey;
+                    border: solid 1px $border-grey;
+                    border-radius: $dropdown-border-radius;
+                    position: relative;
+                    width: 50%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    text-transform: capitalize;
+
+                    @include media-breakpoint-down(md) {
+                        width: 100%;
+                    }
+                }
+
+                ul {
+                    padding: 0;
+                    border-radius: $dropdown-border-radius;
+                    overflow: hidden;
+
+                    &.dropdown-menu {
+                        li {
+                            cursor: pointer;
+
+                            a {
+                                padding: 0.8rem 0.8rem;
+                                text-align: start;
+                                font-size: 1rem;
+                                font-weight: 600;
+                                color: $text-grey;
+                                text-transform: capitalize;
+
+                                &.dropdown-item {
+                                    &:active {
+                                        background-color: $main-purple;
+                                        color: #fff;
+                                    }
+
+                                    &:hover {
+                                        background-color: $main-purple;
+                                        color: #fff;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .modal-footer {
+        border: none;
+
+        button {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            padding-right: 2.5rem;
+            padding-left: 2.5rem;
+            width: fit-content;
+
+            &#add {
+                background-color: $main-purple;
+                border-radius: $button-border-radius;
+                border-color: $main-purple;
+                color: #fff;
+            }
+
+            &#cancel {
+                background-color: #fff;
+                color: $main-purple;
+                border: none;
+            }
+        }
+    }
+
+    h4 {
+        text-transform: capitalize;
+        color: $main-purple;
+        font-size: 1.5rem;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 25px;
+            height: 25px;
+            margin: auto 1rem;
+        }
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: $text-black;
+        font-weight: 500;
+    }
+}

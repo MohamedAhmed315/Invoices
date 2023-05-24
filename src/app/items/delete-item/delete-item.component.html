@@ -1,0 +1,41 @@
+<div id="delete-item">
+    <a (click)="open_modal(content)">
+        <img src="../../assets/img/trash-alt-regular.svg" alt="" title="Delete">
+    </a>
+</div>
+
+
+
+
+<!-- Delete item Modal -->
+<ng-template #content let-modal id="delete-item-modal">
+    <div class="modal-header">
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <h4>
+            <img src="../../../assets/img/trash-alt-regular.svg" alt="">
+            Delete item 'item1'?
+        </h4>
+    </div>
+    <div class="modal-footer">
+        <button type="button" id="cancel" class="btn btn-light" (click)="modal.close('Close click')">Cancel</button>
+        <button type="button" id="delete" class="btn btn-light"
+            (click)="delete_item(); modal.close(); open_modal(success);">Delete</button>
+    </div>
+</ng-template>
+
+
+<!-- Success Modal -->
+<ng-template #success let-modal id="success-modal">
+    <div class="modal-body text-center">
+        <div class="modal-header">
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <h4>
+            <img src="../../../assets/img/check-solid.svg" alt="">
+            item deleted successfully
+        </h4>
+    </div>
+    <button type="button" id="ok" class="btn btn-light" (click)="modal.close('Close click')">OK</button>
+</ng-template>

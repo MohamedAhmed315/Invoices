@@ -1,0 +1,78 @@
+<div id="edit-team-member">
+    <a (click)="open_modal(content)">
+        <img src="../../../assets/img/edit-regular.svg" alt="" title="Edit">
+    </a>
+</div>
+
+<ng-template #content let-modal id="new-member-modal">
+    <div class="modal-header">
+        <h4 class="modal-title">edit member</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <!-- Form -->
+        <div id="new-member-form">
+            <form method="GET" [formGroup]="EditMemberForm"
+                (ngSubmit)="formSubmit(); modal.close(); open_modal(success);">
+                <div class="row mb-3">
+                    <label class="col-lg-2 col-form-label">Role</label>
+                    <div class="col-lg-10">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                {{ role_value }}
+                            </button>
+
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" #refEl1
+                                        (click)='change_role_value(refEl1)'>Adminstrator</a>
+                                </li>
+                                <li><a class="dropdown-item" #refEl2 (click)='change_role_value(refEl2)'>Leader</a>
+                                </li>
+                                <li><a class="dropdown-item" #refEl3 (click)='change_role_value(refEl3)'>User</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="new-member-name" class="col-lg-2 col-form-label">Name</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="new-member-name" name="new-member-name"
+                            placeholder="Member Name" formControlName="member_name" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="new-member-email" class="col-lg-2 col-form-label">Email</label>
+                    <div class="col-lg-10">
+                        <input type="email" class="form-control" id="new-member-email" name="new-member-email"
+                            placeholder="Email Address" formControlName="member_email" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="cancel" class="btn btn-light"
+                        (click)="modal.close('Close click')">Cancel</button>
+
+                    <button type="submit" id="add" class="btn btn-light" [disabled]="!EditMemberForm.valid">Add new
+                        member</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #success let-modal id="success-modal">
+
+    <div class="modal-body text-center">
+        <div class="modal-header">
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <h4>
+            <img src="../../../assets/img/check-solid.svg" alt="">
+            member data edited successfully
+        </h4>
+    </div>
+    <button type="button" id="ok" class="btn btn-light" (click)="modal.close('Close click')">OK</button>
+</ng-template>

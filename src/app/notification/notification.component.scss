@@ -1,0 +1,64 @@
+@import '../../assets/css/variables';
+@import '../../assets/css/media-query';
+
+#header {
+    padding: 2rem 1rem 0;
+    width: fit-content;
+
+    .dropdown {
+        button {
+            background-color: transparent;
+            color: $border-grey;
+            border: none;
+            position: relative;
+        }
+
+        .new-item {
+            border-radius: 50%;
+            width: 7px;
+            height: 7px;
+            right: 25px;
+            top: 12px;
+            background-color: $main-purple;
+            position: absolute;
+        }
+
+        ul {
+            padding: 0;
+            border-radius: $dropdown-border-radius;
+            overflow: hidden;
+
+            &.dropdown-menu {
+
+
+                li {
+                    cursor: pointer;
+                    border-top: dashed 1px $border-grey;
+
+                    &:first-child {
+                        border-top: none;
+                    }
+
+                    a {
+                        padding: 0.8rem 0.8rem;
+                        text-align: start;
+                        font-size: 1rem;
+                        font-weight: 500;
+
+                        &.dropdown-item {
+                            &:active {
+                                background-color: $main-purple;
+                                color: #fff;
+                            }
+
+                            &:hover {
+                                background-color: $main-purple;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

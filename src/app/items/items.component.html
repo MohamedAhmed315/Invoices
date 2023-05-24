@@ -1,0 +1,136 @@
+<div id="items">
+    <h1>items</h1>
+    <app-new-item></app-new-item>
+    <table class="table table-bordered text-center">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Item</th>
+                <th scope="col">Description</th>
+                <th scope="col">Unit Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total Price</th>
+                <th scope="col">Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr
+                *ngFor="let item of items | paginate: { itemsPerPage: itemPerPage, currentPage: page_number }; let i = index;">
+                <th scope="row"> {{ itemPerPage * (page_number - 1) + i + 1 }} </th>
+                <td class="capitalize">{{ item.name }}</td>
+                <td class="capitalize">{{ item.desc }}</td>
+                <td>{{ item.unitPrice }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.totalPrice }}</td>
+
+                <td class="actions">
+                    <a (click)="this.newItem.open_modal(content)">
+                        <img src="../../assets/img/edit-regular.svg" alt="" title="Edit">
+                    </a>
+                    <app-delete-item></app-delete-item>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="prices">
+        <div class="row">
+            <div class="col">
+                <h2>subtotal</h2>
+            </div>
+            <div class="col">
+                <p>0</p>
+            </div>
+        </div>
+        <div class="row" id="tax-row">
+            <div class="col">
+                <h2>Taxes (VAT 14%)</h2>
+            </div>
+            <div class="col">
+                <p>0</p>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="prices">
+        <div class="row">
+            <div class="col">
+                <h2>Total Amount</h2>
+            </div>
+            <div class="col">
+                <p>0</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modals -->
+<ng-template #content let-modal id="edit-item-modal">
+    <div class="modal-header">
+        <h4 class="modal-title">edit item</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <!-- Form -->
+        <div id="edit-item-form">
+            <form method="GET" [formGroup]="EditItemForm"
+                (ngSubmit)="edit_item(); modal.close(); this.newItem.open_modal(success);">
+
+                <div class="row mb-3">
+                    <label for="new-item-name" class="col-lg-2 col-form-label">Name</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="new-item-name" name="new-item-name"
+                            placeholder="Item Name" formControlName="item_name" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="new-item-Desc" class="col-lg-2 col-form-label">Description</label>
+                    <div class="col-lg-10">
+                        <textarea name="new-item-desc" id="new-item-desc" formControlName="item_desc" rows="2"
+                            placeholder="Item Description"></textarea>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="new-item-price" class="col-lg-2 col-form-label">Unit Price</label>
+                    <div class="col-lg-10">
+                        <input type="number" class="form-control" id="new-item-price" name="new-item-price"
+                            placeholder="Unit Price" formControlName="item_price" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="new-item-quantity" class="col-lg-2 col-form-label">Quantity</label>
+                    <div class="col-lg-10">
+                        <input type="number" class="form-control" id="new-item-quantity" name="new-item-quantity"
+                            placeholder="Quantity" formControlName="item_quantity" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="cancel" class="btn btn-light"
+                        (click)="modal.close('Close click')">Cancel</button>
+
+                    <button type="submit" id="add" class="btn btn-light" [disabled]="!EditItemForm.valid">Edit
+                        item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #success let-modal id="success-modal">
+
+    <div class="modal-body text-center">
+        <div class="modal-header">
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <h4>
+            <img src="../../../assets/img/check-solid.svg" alt="">
+            item edited successfully
+        </h4>
+    </div>
+    <button type="button" id="ok" class="btn btn-light" (click)="modal.close('Close click')">OK</button>
+</ng-template>

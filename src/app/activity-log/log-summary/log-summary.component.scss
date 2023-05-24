@@ -1,0 +1,19 @@
+@import '../../../assets/css/variables';
+
+#log-summary {
+    h1 {
+        text-transform: capitalize;
+        color: $main-purple;
+        font-weight: 600;
+    }
+
+    .date {
+        color: $main-purple;
+        font-size: 1rem;
+    }
+
+    .action {
+        color: $text-grey;
+        font-weight: 500;
+    }
+}

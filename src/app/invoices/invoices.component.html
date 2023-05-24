@@ -1,0 +1,144 @@
+<div id="invoices">
+    <div class="container-fluid p-0">
+        <a routerLink="/admin/new-invoice" id="new-invoice-btn" class="btn ">
+            <img src="../../assets/img/plus-white.svg" alt="">
+            {{"Add new invoice" | translate}}
+        </a>
+        <div id="selections">
+            <div class="row w-100">
+                <div class="col-lg-6 d-flex flex-column flex-sm-row align-items-baseline my-2 p-0">
+                    <h3 class="">Show: </h3>
+                    <!-- Date Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            {{ date_value }}
+                        </button>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" #refEl1 (click)='change_date_value(refEl1)'>all</a>
+                            </li>
+                            <li><a class="dropdown-item" #refEl2 (click)='change_date_value(refEl2)'>This Month</a>
+                            </li>
+                            <li><a class="dropdown-item" #refEl3 (click)='change_date_value(refEl3)'>Last Month</a>
+                            </li>
+                            <li><a class="dropdown-item" #refEl4 (click)='change_date_value(refEl4)'>from (date)</a>
+                            </li>
+                            <li><a class="dropdown-item" #refEl5 (click)='change_date_value(refEl5)'>to (date)</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Status Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            {{ status_value }}
+                        </button>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" #refEl5 (click)='change_status_value(refEl5)'>all</a></li>
+                            <li><a class="dropdown-item" #refEl6 (click)='change_status_value(refEl6)'>due</a></li>
+                            <li><a class="dropdown-item" #refEl7 (click)='change_status_value(refEl7)'>overdue</a></li>
+                            <li><a class="dropdown-item" #refEl8 (click)='change_status_value(refEl8)'>archived</a></li>
+                            <li><a class="dropdown-item" #refEl8 (click)='change_status_value(refEl8)'>draft</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-block d-lg-flex p-0 my-2">
+                    <div class="search ms-auto">
+                        <input type="text" name="search-input" id="search-input" placeholder="Search...">
+                        <button>
+                            <img src="../../assets/img/search-solid.svg" alt="">
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Date / Time</th>
+                    <th scope="col">Client</th>
+                    <th scope="col">Project</th>
+                    <th scope="col">Currency</th>
+                    <th scope="col">Subtotal</th>
+                    <th scope="col">Tax Rate %</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Due</th>
+                    <th scope="col">Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr
+                    *ngFor="let item of collection | paginate: { itemsPerPage: itemPerPage, currentPage: page_number }; let i = index;">
+                    <th scope="row"> {{ itemPerPage * (page_number - 1) + i + 1 }} </th>
+                    <td class="capitalize">{{ item.date }}</td>
+                    <td class="capitalize">{{ item.client }}</td>
+                    <td class="capitalize">{{ item.project }}</td>
+                    <td class="uppercase">{{ item.currency }}</td>
+                    <td>{{ item.subtotal }}</td>
+                    <td>{{ item.taxRate }}</td>
+                    <td>{{ item.total }}</td>
+                    <td class="capitalize">{{item.status}}</td>
+                    <td>{{ item.due }}</td>
+                    <td class="actions">
+                        <a routerLink="/admin/preview-invoice">
+                            <img src="../../assets/img/eye-regular.svg" alt="" title="Preview"
+                                style="width: 23px; height: 23px;">
+                        </a>
+                        <a routerLink="/admin/edit-invoice">
+                            <img src="../../assets/img/edit-regular.svg" alt="" title="Edit">
+                        </a>
+                        <a (click)="this.delete_invoice.open_modal(content)">
+                            <img src="../../assets/img/trash-alt-regular.svg" alt="" title="Delete">
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <pagination-controls class="invoice-pagination" (pageChange)="page_number = $event"></pagination-controls>
+    </div>
+</div>
+
+<!-- Delete invoice Modal -->
+<ng-template #content let-modal id="delete-invoice-modal">
+    <div class="modal-header">
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <h4>
+            <img src="../../../assets/img/trash-alt-regular.svg" alt="">
+            Delete invoice with ID '12345'?
+        </h4>
+    </div>
+    <div class="modal-footer">
+        <button type="button" id="cancel" class="btn btn-light" (click)="modal.close('Close click')">Cancel</button>
+        <button type="button" id="delete" class="btn btn-light"
+            (click)="this.delete_invoice.delete_invoice(); modal.close(); this.delete_invoice.open_modal(success);">Delete</button>
+    </div>
+</ng-template>
+
+
+<!-- Success Modal -->
+<ng-template #success let-modal id="success-modal">
+    <div class="modal-body text-center">
+        <div class="modal-header">
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <h4>
+            <img src="../../../assets/img/check-solid.svg" alt="">
+            invoice deleted successfully
+        </h4>
+    </div>
+    <button type="button" id="ok" class="btn btn-light" (click)="modal.close('Close click')">OK</button>
+</ng-template>

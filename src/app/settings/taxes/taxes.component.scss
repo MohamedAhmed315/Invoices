@@ -1,0 +1,93 @@
+@import '../../../assets/css/variables';
+@import '../../../assets/css/media-query';
+
+.inner-content {
+    padding: 1rem 0;
+    height: 550px;
+
+    @include media-breakpoint-down(lg) {
+        height: auto;
+    }
+
+    // Table
+    .table {
+        margin-top: 2rem;
+        width: 50%;
+
+        @include media-breakpoint-down(md) {
+            width: 100%;
+        }
+
+        thead {
+            border-color: $main-purple;
+            color: $main-purple
+        }
+
+        tr {
+            td {
+                &.actions {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    a {
+                        margin: auto 0.2rem;
+                        cursor: pointer;
+
+                        img {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+
+                &.capitalize {
+                    text-transform: capitalize;
+                }
+
+                &.uppercase {
+                    text-transform: uppercase;
+                }
+            }
+        }
+
+        .form-check {
+            margin: auto;
+            width: fit-content;
+
+            input {
+                &:checked[type=radio] {
+                    background-image: none;
+                    background-color: $main-purple;
+                    border: solid 2px #fff;
+                    outline: solid 2px $main-purple !important;
+
+                    &:focus,
+                    &:active {
+                        box-shadow: none;
+                        outline: 0;
+                    }
+                }
+
+                &.form-check-input:focus {
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+}
+
+// Pagination Styles
+.invoice-pagination {
+    font-family: BellotaText-Regular, sans-serif;
+    font-size: 1rem;
+
+    ::ng-deep {
+        .ngx-pagination {
+            .current {
+                background: $main-purple;
+                border-radius: 50%;
+            }
+        }
+    }
+}

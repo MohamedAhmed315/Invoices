@@ -1,0 +1,98 @@
+@import '../../../assets/css/variables';
+@import '../../../assets/css/media-query';
+
+.inner-content {
+    padding: 1rem 0;
+    height: 550px;
+
+    @include media-breakpoint-down(lg) {
+        height: auto;
+    }
+
+    label {
+        color: $main-purple;
+        text-transform: capitalize;
+        font-weight: 900;
+        font-size: 1rem;
+    }
+
+    // Dropdown
+    .dropdown {
+        button {
+            background-color: transparent;
+            color: $text-grey;
+            border: solid 1px $border-grey;
+            border-radius: $dropdown-border-radius;
+            position: relative;
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-transform: capitalize;
+
+            @include media-breakpoint-down(md) {
+                width: 100%;
+            }
+        }
+
+        ul {
+            padding: 0;
+            border-radius: $dropdown-border-radius;
+            overflow: hidden;
+
+            &.dropdown-menu {
+                li {
+                    cursor: pointer;
+
+                    a {
+                        padding: 0.8rem 0.8rem;
+                        text-align: start;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        color: $text-grey;
+                        text-transform: capitalize;
+
+                        &.dropdown-item {
+                            &:active {
+                                background-color: $main-purple;
+                                color: #fff;
+                            }
+
+                            &:hover {
+                                background-color: $main-purple;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // input
+    input {
+        border-radius: $button-border-radius;
+        padding-left: 1rem;
+
+        &:active,
+        &:focus {
+            box-shadow: none;
+            outline: 0;
+            border-color: $main-purple;
+        }
+    }
+
+    // Placeholder Color
+    ::placeholder {
+        color: $border-grey;
+        opacity: 1;
+    }
+
+    :-ms-input-placeholder {
+        color: $border-grey;
+    }
+
+    ::-ms-input-placeholder {
+        color: $border-grey;
+    }
+}

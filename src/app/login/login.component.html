@@ -1,0 +1,45 @@
+<div id="login" class="d-flex flex-column justify-content-between align-items-center position-relative">
+    <app-loading-view *ngIf="showLoading"></app-loading-view>
+    <div class="w-100">
+        <app-sucess-alert *ngIf="show_success_Alert"></app-sucess-alert>
+        <app-error-alert *ngIf="show_failure_alert"></app-error-alert>
+    </div>
+
+    <div class="container d-flex flex-column align-items-center justify-content-center">
+        <div class="img-container">
+            <img src="../../assets/img/chart-line-solid.svg" alt="logo">
+        </div>
+        <h2 id="title">Invoices Manager</h2>
+
+        <!-- Form -->
+        <div id="login-form">
+            <h2>Login</h2>
+            <form method="GET" [formGroup]="LoginForm" (ngSubmit)="formSubmit()">
+
+                <div class="row mb-3">
+                    <label for="login-email" class="col-lg-2 col-form-label">Email</label>
+                    <div class="col-lg-10">
+                        <input type="email" class="form-control" id="login-email" name="login-email"
+                            placeholder="Email Address" formControlName="email" ngModel [email]="true" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="login-password" class="col-lg-2 col-form-label">Password</label>
+                    <div class="col-lg-10">
+                        <input type="password" class="form-control" id="login-password" name="login-password"
+                            placeholder="Password" formControlName="password" required>
+                    </div>
+                </div>
+                <div id="login-btn-container" class="d-flex flex-column align-items-center justify-content-center">
+                    <button type="submit" class="btn btn-primary" [disabled]="!LoginForm.valid">login</button>
+                    <a routerLink="/login">Forgot Password?</a>
+                    <!-- Forgot Password Link -->
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+    <div></div>
+</div>

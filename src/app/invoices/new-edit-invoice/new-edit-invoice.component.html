@@ -1,0 +1,214 @@
+<div id="new-edit-invoice">
+    <div id="top-bar">
+        <div id="back">
+            <a routerLink="/admin/invoices">
+                <img src="../../../assets/img/arrow-left-white.svg" alt="" title="back">
+            </a>
+            <label> Invoice #12345</label>
+        </div>
+
+        <div id="options" *ngIf="isEdit">
+            <!-- options Dropdown -->
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <img src="../../assets/img/settings-grey.svg" alt="">
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" routerLink="/admin/new-invoice">
+                            <img src="../../../assets/img/plus-grey.svg" alt="">
+                            Create New
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="/admin/preview-invoice">
+                            <img src="../../../assets/img/eye-grey.svg" alt="">
+                            Preview
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            <img src="../../../assets/img/print-grey.svg" alt="">
+                            Print
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            <img src="../../../assets/img/archive-grey.svg" alt="">
+                            Archive
+                        </a>
+                    </li>
+                    <li>
+                        <app-delete-invoice></app-delete-invoice>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Save Changes Button -->
+            <div id="save-changes">
+                <label class="btn invisible">
+                    <!-- Lorem ipsum dolor sit amet. -->
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <h1>Details</h1>
+
+        <form [formGroup]="invoice_form" (ngSubmit)="submit_form()">
+            <div class="row align-items-center my-3">
+                <div class="col-12 col-xl-2 col-lg-2 col-md-3">
+                    <label>creation date</label>
+                </div>
+                <div class="col-12 col-xl-4 col-lg-6 col-md-9 calendar">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="Choose a Date" name="dp" ngbDatepicker
+                            #d1="ngbDatepicker" />
+                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d1.toggle()" type="button">
+                            <img src="../../../assets/img/calendar-alt-solid.svg" alt="">
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center my-3">
+                <div class="col-12 col-xl-2 col-lg-2 col-md-3">
+                    <label>due date</label>
+                </div>
+                <div class="col-12 col-xl-4 col-lg-6 col-md-9 calendar">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="Choose a Date" name="dp" ngbDatepicker
+                            #d2="ngbDatepicker" />
+                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d2.toggle()" type="button">
+                            <img src="../../../assets/img/calendar-alt-solid.svg" alt="">
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center my-3">
+                <div class="col-12 col-xl-2 col-lg-2 col-md-3">
+                    <label>Client</label>
+                </div>
+                <div class="col-6 col-xl-4 col-lg-6 col-md-9 client-dropdown" id="client-dropdown">
+                    <!-- Client Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Select Client
+                        </button>
+
+                        <ul class="dropdown-menu">
+                            <li *ngFor='let client of clients; let i = index;'>
+                                <a class="dropdown-item" href="#">
+                                    {{ client }} {{i + 1}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <p class="m-0 text-center text-lg-start">+ Add new client</p>
+                </div>
+            </div>
+
+            <div class="row align-items-center my-3">
+                <div class="col-12 col-xl-2 col-lg-2 col-md-3">
+                    <label>Project Name</label>
+                </div>
+                <div class="col-6 col-xl-10 col-lg-10 col-md-9 client-dropdown">
+                    <input type="text" class="form-control" id="project-name" name="project-name"
+                        placeholder="Project Name" formControlName="project_name" required>
+                </div>
+            </div>
+
+            <div class="row align-items-center my-3">
+                <div class="col-12 col-xl-2 col-lg-2 col-md-3">
+                    <label>Description</label>
+                </div>
+                <div class="col-6 col-xl-10 col-lg-10 col-md-9 client-dropdown">
+                    <textarea name="project-desc" id="project-desc" formControlName="project_desc" rows="2"
+                        placeholder="Project Description"></textarea>
+                </div>
+            </div>
+
+            <div class="row align-items-center my-3">
+                <div class="col-12 col-xl-2 col-lg-2 col-md-3">
+                    <label>Payment</label>
+                </div>
+                <div class="col-6 col-xl-4 col-lg-6 col-md-9 client-dropdown">
+                    <!-- Payment Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Select Payment
+                        </button>
+
+                        <ul class="dropdown-menu">
+                            <li *ngFor='let payment of payments; let i = index;'>
+                                <a class="dropdown-item" href="#">
+                                    {{ payment }} {{i + 1}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center my-3">
+                <div class="col-12 col-xl-2 col-lg-2 col-md-3">
+                    <label>Currency</label>
+                </div>
+                <div class="col-6 col-xl-4 col-lg-6 col-md-9 client-dropdown">
+                    <!-- Currency Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Select Currency
+                        </button>
+
+                        <ul class="dropdown-menu">
+                            <li *ngFor='let currency of currencies; let i = index;'>
+                                <a class="dropdown-item" href="#">
+                                    {{ currency }} {{i + 1}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center my-3">
+                <div class="col-12 col-xl-2 col-lg-2 col-md-3">
+                    <label>status</label>
+                </div>
+                <div class="col-6 col-xl-4 col-lg-6 col-md-9 client-dropdown">
+                    <!-- status Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Select status
+                        </button>
+
+                        <ul class="dropdown-menu">
+                            <li *ngFor='let status of statuses; let i = index;'>
+                                <a class="dropdown-item" href="#">
+                                    {{ status }} {{i + 1}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+
+    </div>
+</div>
+
+<!-- Items Component -->
+<app-items></app-items>

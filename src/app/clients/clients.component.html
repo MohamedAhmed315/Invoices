@@ -1,0 +1,35 @@
+<app-new-client></app-new-client>
+
+<div id="clients-list">
+    <table class="table table-bordered text-center">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Type</th>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Email Address</th>
+                <th scope="col">Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr
+                *ngFor="let client of clients | paginate: { itemsPerPage: itemPerPage, currentPage: page_number }; let i = index;">
+                <th scope="row"> {{ itemPerPage * (page_number - 1) + i + 1 }} </th>
+                <td class="capitalize">{{ client.type }}</td>
+                <td class="capitalize">{{ client.name }}</td>
+                <td class="capitalize">{{ client.address }}</td>
+                <td>{{ client.email }}</td>
+                <td class="actions">
+                    <app-preview-client></app-preview-client>
+                    <app-edit-client></app-edit-client>
+                    <app-delete-client></app-delete-client>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls class="team-pagination" (pageChange)="page_number = $event"></pagination-controls>
+
+</div>

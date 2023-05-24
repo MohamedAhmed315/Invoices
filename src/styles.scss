@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Fonts
+@font-face {
+    font-family: "BellotaText-Regular";
+    src: url(./assets/fonts/BellotaText-Regular.ttf);
+}
+
+@font-face {
+    font-family: "BellotaText-Bold";
+    src: url(./assets/fonts/BellotaText-Bold.ttf);
+}
+
+@font-face {
+    font-family: "BellotaText-BoldItalic";
+    src: url(./assets/fonts/BellotaText-BoldItalic.ttf);
+}
+
+@font-face {
+    font-family: "BellotaText-Light";
+    src: url(./assets/fonts/BellotaText-Light.ttf);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: BellotaText-Regular, sans-serif !important;
+
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    a,
+    label {
+        font-family: BellotaText-Regular, sans-serif !important;
+    }
+}
+
+app-side-bar {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    z-index: 0;
+}
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

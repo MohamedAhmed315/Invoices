@@ -1,0 +1,68 @@
+<div class="inner-content">
+
+    <div class="row mt-4">
+        <label class="col-lg-2 col-form-label">Default Language</label>
+        <div class="col-lg-10">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    {{ language_value }}
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" #lang1 (click)='change_language_value(lang1)'>English</a>
+                    </li>
+                    <li><a class="dropdown-item" #lang2 (click)='change_language_value(lang2)'>Arabic</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <label class="col-lg-2 col-form-label">Default Currency</label>
+        <div class="col-lg-10">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    {{ currency_value }}
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" #curr1 (click)='change_currency_value(curr1)'>EGP</a>
+                    </li>
+                    <li><a class="dropdown-item" #curr2 (click)='change_currency_value(curr2)'>USD</a>
+                    </li>
+                    <li><a class="dropdown-item" #curr3 (click)='change_currency_value(curr3)'>EUR</a>
+                    </li>
+                    <li><a class="dropdown-item" #curr4 (click)='change_currency_value(curr4)'>GBP</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <label class="col-lg-2 col-form-label">Financial Year (Beginning)</label>
+        <div class="col-lg-10">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    {{ year_value }}
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" #year1 (click)='change_year_value(year1)'>EGP</a>
+                    </li>
+                    <li><a class="dropdown-item" #year2 (click)='change_year_value(year2)'>USD</a>
+                    </li>
+                    <li><a class="dropdown-item" #year3 (click)='change_year_value(year3)'>EUR</a>
+                    </li>
+                    <li><a class="dropdown-item" #year4 (click)='change_year_value(year4)'>GBP</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>

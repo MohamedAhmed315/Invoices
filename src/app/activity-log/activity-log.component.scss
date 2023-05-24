@@ -1,0 +1,104 @@
+@import '../../assets/css/variables';
+@import '../../assets/css/media-query';
+
+#activity-log {
+    border-top: solid 2px $border-grey;
+    margin-top: 2rem;
+    padding: 1rem 1.5rem;
+
+    // Dropdowns
+    #selections {
+        width: 100%;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-evenly;
+
+        h3 {
+            text-transform: capitalize;
+            color: $text-grey;
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        .dropdown {
+            margin: 0 0.5rem;
+
+            @include media-breakpoint-down(sm) {
+                margin: 0.5rem 0;
+            }
+
+            button {
+                background-color: transparent;
+                color: $text-grey;
+                border: solid 1px $border-grey;
+                border-radius: $dropdown-border-radius;
+                position: relative;
+                width: 10rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                text-transform: capitalize;
+            }
+
+            ul {
+                padding: 0;
+                border-radius: $dropdown-border-radius;
+                overflow: hidden;
+
+                &.dropdown-menu {
+                    li {
+                        cursor: pointer;
+
+                        a {
+                            padding: 0.8rem 0.8rem;
+                            text-align: start;
+                            font-size: 1rem;
+                            font-weight: 600;
+                            color: $text-grey;
+                            text-transform: capitalize;
+
+                            &.dropdown-item {
+                                &:active {
+                                    background-color: $main-purple;
+                                    color: #fff;
+                                }
+
+                                &:hover {
+                                    background-color: $main-purple;
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Pagination Styles
+    .logs-pagination {
+        font-family: BellotaText-Regular, sans-serif;
+        font-size: 1rem;
+
+        ::ng-deep {
+            .ngx-pagination {
+                .current {
+                    background: $main-purple;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+
+    .row {
+        font-size: 1rem;
+        font-weight: 600;
+        color: $text-grey;
+        margin: 1rem auto;
+
+        .date-col {
+            color: $main-purple;
+            margin-bottom: 0.5rem;
+        }
+    }
+}

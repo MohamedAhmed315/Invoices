@@ -1,0 +1,115 @@
+<div id="edit-client">
+    <a (click)="open_modal(content)">
+        <img src="../../../assets/img/edit-regular.svg" alt="" title="Edit">
+    </a>
+</div>
+
+<ng-template #content let-modal id="edit-client-modal">
+    <div class="modal-header">
+        <h4 class="modal-title">edit client</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <!-- Form -->
+        <div id="edit-client-form">
+            <form method="GET" [formGroup]="editClientForm"
+                (ngSubmit)="editClient(); modal.close(); open_modal(success);">
+
+                <div class="row mb-3">
+                    <label class="col-lg-2 col-form-label">Type</label>
+                    <div class="col-lg-10">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                {{ type_value }}
+                            </button>
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" #refEl1 (click)='change_type_value(refEl1)'>Individual</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" #refEl2
+                                        (click)='change_type_value(refEl2)'>Organization</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row mb-3">
+                    <label for="edit-client-name" class="col-lg-2 col-form-label">Name</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="edit-client-name" name="edit-client-name"
+                            placeholder="Name" formControlName="edit_client_name" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="edit-client-address" class="col-lg-2 col-form-label">Address</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="edit-client-address" name="edit-client-address"
+                            placeholder="Address" formControlName="edit_client_address" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="edit-client-email" class="col-lg-2 col-form-label">Email</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="edit-client-email" name="edit-client-email"
+                            placeholder="Email" formControlName="edit_client_email" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="edit-client-phone" class="col-lg-2 col-form-label">Phone</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="edit-client-phone" name="edit-client-phone"
+                            placeholder="Phone" formControlName="edit_client_phone" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="edit-client-fax" class="col-lg-2 col-form-label">Fax</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="edit-client-fax" name="edit-client-fax"
+                            placeholder="Fax" formControlName="edit_client_fax" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="edit-client-website" class="col-lg-2 col-form-label">Website</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="edit-client-website" name="edit-client-website"
+                            placeholder="Website" formControlName="edit_client_website" required>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" id="cancel" class="btn btn-light"
+                        (click)="modal.close('Close click')">Cancel</button>
+
+                    <button type="submit" id="add" class="btn btn-light" [disabled]="!editClientForm.valid">Edit
+                        client</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #success let-modal id="success-modal">
+
+    <div class="modal-body text-center">
+        <div class="modal-header">
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <h4>
+            <img src="../../../assets/img/check-solid.svg" alt="">
+            client added successfully
+        </h4>
+    </div>
+    <button type="button" id="ok" class="btn btn-light" (click)="modal.close('Close click')">OK</button>
+</ng-template>

@@ -1,0 +1,173 @@
+@import '../../assets/css/variables';
+
+@import '../../assets/css/media-query';
+
+#sidebar-container {
+    height: 100%;
+    width: 100vw;
+    background-color: transparent;
+    z-index: 1 !important;
+
+    #header {
+        padding: 2rem 1rem 0;
+        width: fit-content;
+        right: 0;
+        position: absolute;
+
+        .dropdown {
+            button {
+                background-color: transparent;
+                color: $border-grey;
+                border: none;
+                position: relative;
+            }
+
+            .new-item {
+                border-radius: 50%;
+                width: 7px;
+                height: 7px;
+                right: 25px;
+                top: 12px;
+                background-color: $main-purple;
+                position: absolute;
+            }
+
+            ul {
+                padding: 0;
+                border-radius: $dropdown-border-radius;
+                overflow: hidden;
+
+                &.dropdown-menu {
+                    li {
+                        cursor: pointer;
+
+                        a {
+                            padding: 0.8rem 0.8rem;
+                            text-align: start;
+                            font-size: 1rem;
+                            font-weight: 500;
+
+                            &.dropdown-item {
+                                &:active {
+                                    background-color: $main-purple;
+                                    color: #fff;
+                                }
+
+                                &:hover {
+                                    background-color: $main-purple;
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #sidebar {
+        // width: 200px;
+        padding: 0rem;
+
+        .img-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+
+            img {
+                width: 100%;
+                height: auto;
+                margin: auto;
+                top: -28%;
+                display: block;
+                position: absolute;
+            }
+        }
+
+        .items-container {
+            display: flex;
+            flex-direction: column;
+            height: 70%;
+            overflow: hidden;
+            justify-content: space-between;
+
+            a {
+                &.btn {
+                    display: flex;
+                    background-color: transparent;
+                    color: $text-grey;
+                    border: none;
+                    font-weight: 600;
+
+                    svg {
+                        width: 20px;
+                        height: 25px;
+                        margin: 0 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    .active-link{
+        color:$main-purple !important;
+        font-weight: bold !important;
+    } 
+    .active-svg{
+        fill:$main-purple !important;
+    }
+    mat-drawer-content{
+        overflow: none;
+    }
+
+}
+
+#closed-bar {
+    width: 70px;
+    height: 100%;
+    // background-color: aqua;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    .img-container {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+
+        img {
+            width: 100%;
+            height: auto;
+            margin: auto;
+            // top: -28%;
+            display: block;
+            position: absolute;
+        }
+    }
+
+    .items-container {
+        display: flex;
+        flex-direction: column;
+        height: 70%;
+        overflow: hidden;
+        justify-content: space-between;
+
+        a {
+            &.btn {
+                display: flex;
+                background-color: transparent;
+                color: $text-grey;
+                border: none;
+                font-weight: 600;
+
+                img {
+                    width: 15px;
+                    margin: 0 5px;
+                }
+            }
+        }
+    }
+}
+

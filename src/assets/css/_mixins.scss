@@ -1,0 +1,79 @@
+@mixin centerer($horizontal: true, $vertical: true) {
+    position: absolute;
+    @if ($horizontal and $vertical) {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    } @else if ($horizontal) {
+      left: 50%;
+      transform: translate(-50%, 0);
+    } @else if ($vertical) {
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+  }
+
+@mixin flex-centerer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin dropdown-toggler($fill: 1D1D1B){
+    &:after{
+        content: '';
+        width: 12px;
+        height:12px;
+        border:none;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 7.41'><path d='M16.59,8.59,12,13.17,7.41,8.59,6,10l6,6,6-6Z' transform='translate(-6 -8.59)' fill='%23" + $fill + "'/></svg>");
+        background-position: center center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        margin-top: 0.25rem;
+
+    }
+    &.show{
+        &:after{
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 7.41'><path d='M16.59,8.59,12,13.17,7.41,8.59,6,10l6,6,6-6Z' transform='translate(18 16) rotate(180)' fill='%23" + $fill + "'/></svg>");
+        }
+    }
+}
+@mixin dropdown-toggler-noarrow(){
+  &:after{
+      width: 0;
+      height:0;
+      border:none;
+  }
+  &.show{
+      &:after{
+        width: 0;
+        height:0;
+      }
+  }
+}
+
+
+// SHADOWS
+@mixin drop-shadow($x, $y, $blur){
+    box-shadow: ($x) ($y) ($blur) rgba(126, 22, 34, 0.2)!important;
+}
+@mixin text-shadow($x, $y, $blur){
+    text-shadow: ($x) ($y) ($blur) rgba(126, 22, 34, 0.2);
+}
+
+// SECTION HEADER
+@mixin section-header($header-color: var(--dark-gray), $align: center) {
+  color: $header-color;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 2.25rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: $align;
+  @include media-breakpoint-down(lg) {
+    text-align: center!important;
+  }
+}

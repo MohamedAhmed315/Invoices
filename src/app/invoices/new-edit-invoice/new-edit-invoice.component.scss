@@ -1,0 +1,286 @@
+@import '../../../assets/css/variables';
+@import '../../../assets/css/media-query';
+
+#new-edit-invoice {
+    padding: 1rem 1.5rem 0;
+    position: relative;
+
+    #top-bar {
+        display: flex;
+        justify-content: space-between;
+        background-color: $main-purple;
+        padding: 1rem 0 1rem 1rem;
+
+        #back {
+            width: fit-content;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            a {
+                img {
+                    width: 15px;
+                    margin-right: 0.5rem;
+                }
+            }
+
+            label {
+                color: white;
+                font-weight: 600;
+                font-size: 1rem;
+            }
+        }
+
+        #options {
+            display: flex;
+            align-items: center;
+
+            .dropdown {
+                button {
+                    background-color: transparent;
+                    color: $border-grey;
+                    border: none;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                }
+
+                ul {
+                    padding: 0;
+                    border-radius: $dropdown-border-radius;
+                    overflow: hidden;
+
+                    &.dropdown-menu {
+                        li {
+                            cursor: pointer;
+                            border-top: dashed 1px $border-grey;
+
+                            &:first-child {
+                                border-top: none;
+                            }
+
+                            a {
+                                padding: 0.8rem 0.8rem;
+                                text-align: start;
+                                font-size: 1rem;
+                                font-weight: 500;
+                                text-transform: capitalize;
+                                display: flex;
+                                align-items: center;
+
+                                &.dropdown-item {
+                                    &:active {
+                                        background-color: $main-purple;
+                                        color: #fff;
+                                    }
+
+                                    &:hover {
+                                        background-color: $main-purple;
+                                        color: #fff;
+                                    }
+                                }
+
+                                img {
+                                    width: 15px;
+                                    margin-right: 0.5rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            #save-changes {
+                width: 200px;
+            }
+        }
+    }
+
+    #main-content {
+        border: solid 2px $border-grey;
+        border-top: none;
+        padding: 2rem 1rem;
+
+        h1 {
+            color: $main-purple;
+            font-weight: 600;
+        }
+
+        form {
+            label {
+                text-transform: capitalize;
+                color: $main-purple;
+                font-weight: 600;
+                font-size: 1rem;
+            }
+
+            .calendar {
+                display: flex;
+
+                input {
+                    border-color: $border-grey;
+                    border-top-left-radius: $button-border-radius;
+                    border-bottom-left-radius: $button-border-radius;
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: 0;
+
+                    &:focus {
+                        box-shadow: none;
+                        outline: none;
+                        border-color: $main-purple;
+                    }
+                }
+
+                button {
+                    border-color: $border-grey;
+                    border-top-right-radius: $button-border-radius;
+                    border-bottom-right-radius: $button-border-radius;
+
+                    &:hover {
+                        background-color: $text-grey;
+                    }
+
+                    img {
+                        width: 15px;
+                    }
+                }
+            }
+
+            input {
+                border-radius: $button-border-radius;
+                padding-left: 1rem;
+
+                &:focus {
+                    box-shadow: none;
+                    outline: none;
+                    border-color: $main-purple;
+                }
+            }
+
+            textarea {
+                border-radius: 1rem;
+                padding: 0.5rem 1rem;
+                border-color: $border-grey;
+                font-size: 1rem;
+                width: 100%;
+
+                &:focus {
+                    box-shadow: none;
+                    outline: none;
+                    border-color: $main-purple;
+                }
+            }
+
+            button[type='submit'] {
+                position: absolute;
+                top: 25px;
+                right: 35px;
+                background-color: #fff;
+                color: $main-purple;
+                border-radius: $button-border-radius;
+                border-color: $main-purple;
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+
+            .client-dropdown {
+                display: flex;
+                align-items: baseline;
+
+                @include media-breakpoint-down (md) {
+                    width: 100%;
+                }
+
+                h3 {
+                    text-transform: capitalize;
+                    color: $text-grey;
+                    font-weight: 600;
+                }
+
+                .dropdown {
+                    width: 100%;
+                    font-size: 1rem;
+                    color: $text-grey;
+
+                    button {
+                        background-color: transparent;
+                        color: $text-grey;
+                        font-size: 1rem;
+                        border: solid 1px $border-grey;
+                        border-radius: $dropdown-border-radius;
+                        position: relative;
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        text-transform: capitalize;
+
+                        &:focus {
+                            border-color: $main-purple;
+                        }
+                    }
+
+                    ul {
+                        padding: 0;
+                        border-radius: $dropdown-border-radius;
+                        overflow: hidden;
+
+                        &.dropdown-menu {
+                            li {
+                                cursor: pointer;
+
+                                a {
+                                    padding: 0.8rem 0.8rem;
+                                    text-align: start;
+                                    font-size: 1rem;
+                                    font-weight: 600;
+                                    color: $text-grey;
+                                    text-transform: capitalize;
+
+                                    &.dropdown-item {
+                                        &:active {
+                                            background-color: $main-purple;
+                                            color: #fff;
+                                        }
+
+                                        &:hover {
+                                            background-color: $main-purple;
+                                            color: #fff;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Placeholder Color
+*::-webkit-input-placeholder {
+    color: $text-grey;
+}
+
+*:-moz-placeholder {
+    color: $text-grey;
+    opacity: 1;
+}
+
+*::-moz-placeholder {
+    color: $text-grey;
+    opacity: 1;
+}
+
+*:-ms-input-placeholder {
+    color: $text-grey;
+}
+
+*::-ms-input-placeholder {
+    color: $text-grey;
+}
+
+*::placeholder {
+    color: $text-grey;
+}

@@ -1,0 +1,98 @@
+@import '../../../assets/css/variables';
+@import '../../../assets/css/media-query';
+
+#invoices-summary {
+    display: flex;
+
+    #selections {
+        width: 50%;
+        display: flex;
+        align-items: baseline;
+
+        @include media-breakpoint-down (md) {
+            width: 100%;
+        }
+
+        h1 {
+            text-transform: capitalize;
+            color: $main-purple;
+            font-weight: 600;
+        }
+
+        .dropdown {
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+
+            button {
+                background-color: transparent;
+                color: $text-grey;
+                border: solid 1px $border-grey;
+                border-radius: $dropdown-border-radius;
+                position: relative;
+                width: 10rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            ul {
+                padding: 0;
+                border-radius: $dropdown-border-radius;
+                overflow: hidden;
+
+                &.dropdown-menu {
+                    li {
+                        border-top: dashed 1px $border-grey;
+                        cursor: pointer;
+
+                        &:first-child {
+                            border-top: none;
+                        }
+
+                        a {
+                            padding: 0.8rem 0.8rem;
+                            text-align: start;
+                            font-size: 1rem;
+                            font-weight: 600;
+                            color: $text-grey;
+
+                            &.dropdown-item {
+                                &:active {
+                                    background-color: $main-purple;
+                                    color: #fff;
+                                }
+
+                                &:hover {
+                                    background-color: $main-purple;
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .invoices-prices {
+        width: 100%;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+
+        label {
+            color: $text-grey;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        h4 {
+            color: $text-black;
+            font-size: 1.5rem;
+            font-weight: 600;
+
+            @include media-breakpoint-down (lg) {
+                font-size: 1.3rem;
+            }
+        }
+    }
+}

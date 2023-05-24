@@ -1,0 +1,86 @@
+@import '../../assets/css/variables';
+@import '../../assets/css/media-query';
+
+#items {
+    margin: 0 1.5rem 1.5rem;
+    padding: 1rem;
+    border: solid 2px $border-grey;
+    border-top: none;
+    position: relative;
+
+    h1 {
+        color: $main-purple;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+
+    // Table
+    .table {
+        margin-top: 2rem;
+
+        thead {
+            border-color: $main-purple;
+            color: $main-purple
+        }
+
+        tr {
+            td {
+                &.actions {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    a {
+                        margin: auto 0.5rem;
+                        cursor: pointer;
+
+                        img {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+
+                &.capitalize {
+                    text-transform: capitalize;
+                }
+
+                &.uppercase {
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+
+    .prices {
+        width: 300px;
+        margin-left: auto;
+
+        .row {
+            align-items: center;
+            text-align: end;
+
+            h2 {
+                color: $main-purple;
+                font-weight: 600;
+                text-transform: capitalize;
+                font-size: 1.1rem;
+                margin-bottom: 0;
+            }
+
+            p {
+                color: $text-grey;
+                font-weight: 600;
+                font-size: 1.1rem;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    hr {
+        border-bottom: solid 1px $border-grey;
+        margin-bottom: 0.5rem;
+        opacity: 1;
+        color: $border-grey;
+    }
+}

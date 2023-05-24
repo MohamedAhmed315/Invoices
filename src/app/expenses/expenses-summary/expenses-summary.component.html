@@ -1,0 +1,48 @@
+<div id="expenses-summary">
+    <div id="selections">
+        <h1 class="me-4">Collected vs Expenses</h1>
+        <!-- Filter Dropdown -->
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                {{ filter_value }}
+            </button>
+
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" #refEl3 (click)='change_filter_value(refEl3)'>This Year</a></li>
+                <li><a class="dropdown-item" #refEl4 (click)='change_filter_value(refEl4)'>Last Year</a></li>
+                <li><a class="dropdown-item" #refEl1 (click)='change_filter_value(refEl1)'>Select Year</a></li>
+            </ul>
+        </div>
+
+        <!-- Currency Dropdown -->
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                {{ currency_value }}
+            </button>
+
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" #refEl5 (click)='change_currency_value(refEl5)'>EGP</a></li>
+                <li><a class="dropdown-item" #refEl6 (click)='change_currency_value(refEl6)'>USD</a></li>
+                <li><a class="dropdown-item" #refEl7 (click)='change_currency_value(refEl7)'>EUR</a></li>
+                <li><a class="dropdown-item" #refEl8 (click)='change_currency_value(refEl8)'>GBP</a></li>
+            </ul>
+        </div>
+
+        <div id="legend">
+            <div id="color1"></div>
+            <label class="me-3">Collected</label>
+            <div id="color2"></div>
+            <label>Expenses</label>
+        </div>
+    </div>
+
+    <!-- Chart -->
+    <div class="row">
+        <div class="col-12">
+            <google-chart [data]="chart_data" [type]="chart_type" [options]="options"></google-chart>
+        </div>
+    </div>
+
+</div>

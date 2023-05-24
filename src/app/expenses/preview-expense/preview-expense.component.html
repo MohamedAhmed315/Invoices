@@ -1,0 +1,42 @@
+<div id="preview-expense">
+    <a (click)="open_modal(content)">
+        <img src="../../assets/img/eye-regular.svg" alt="" title="Preview" style="width: 23px; height: 23px;">
+    </a>
+</div>
+
+<ng-template #content let-modal id="preview-expense-modal">
+    <div class="modal-header">
+        <h4 class="modal-title">view expense</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <table class="table table-borderless">
+            <tbody>
+                <tr>
+                    <td>creation date</td>
+                    <td>Dec 4, 2022 11:23 AM</td>
+                </tr>
+                <tr>
+                    <td>Client</td>
+                    <td>client 12</td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td>project</td>
+                </tr>
+                <tr>
+                    <td>currency</td>
+                    <td class="currency">EGP</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis fugiat temporibus rem dolor? Vero unde quas nulla fugiat cupiditate a nam, sed atque odio facere incidunt libero, ratione itaque soluta expedita fuga eius porro commodi.</td>
+                </tr>
+                <tr>
+                    <td>total amount</td>
+                    <td>123,345</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-template>

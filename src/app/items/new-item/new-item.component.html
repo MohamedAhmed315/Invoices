@@ -1,0 +1,72 @@
+<div id="add-new-item">
+    <a id="new-item-btn" class="btn" (click)="open_modal(content)">
+        <img src="../../assets/img/plus-white.svg" alt="">
+        Add new item
+    </a>
+</div>
+
+<ng-template #content let-modal id="new-item-modal">
+    <div class="modal-header">
+        <h4 class="modal-title">new item</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <!-- Form -->
+        <div id="new-item-form">
+            <form method="GET" [formGroup]="NewItemForm"
+                (ngSubmit)="new_item(); modal.close(); open_modal(success);">
+
+                <div class="row mb-3">
+                    <label for="new-item-name" class="col-lg-2 col-form-label">Name</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="new-item-name" name="new-item-name"
+                            placeholder="Item Name" formControlName="item_name" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="new-item-Desc" class="col-lg-2 col-form-label">Description</label>
+                    <div class="col-lg-10">
+                        <textarea name="new-item-desc" id="new-item-desc" formControlName="item_desc" rows="2"
+                        placeholder="Item Description"></textarea>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="new-item-price" class="col-lg-2 col-form-label">Unit Price</label>
+                    <div class="col-lg-10">
+                        <input type="number" class="form-control" id="new-item-price" name="new-item-price"
+                            placeholder="Unit Price" formControlName="item_price" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="new-item-quantity" class="col-lg-2 col-form-label">Quantity</label>
+                    <div class="col-lg-10">
+                        <input type="number" class="form-control" id="new-item-quantity" name="new-item-quantity"
+                            placeholder="Quantity" formControlName="item_quantity" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="cancel" class="btn btn-light"
+                        (click)="modal.close('Close click')">Cancel</button>
+
+                    <button type="submit" id="add" class="btn btn-light" [disabled]="!NewItemForm.valid">Add to items</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #success let-modal id="success-modal">
+
+    <div class="modal-body text-center">
+        <div class="modal-header">
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <h4>
+            <img src="../../../assets/img/check-solid.svg" alt="">
+            item added successfully
+        </h4>
+    </div>
+    <button type="button" id="ok" class="btn btn-light" (click)="modal.close('Close click')">OK</button>
+</ng-template>

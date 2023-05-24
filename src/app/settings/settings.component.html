@@ -1,0 +1,61 @@
+<div id="settings">
+    <ul class="nav nav-tabs" id="settings-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="business-profile-tab" data-bs-toggle="tab"
+                data-bs-target="#business-profile-tab-pane" type="button" role="tab"
+                aria-controls="business-profile-tab-pane" aria-selected="true">business profile</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="general-settings-tab" data-bs-toggle="tab"
+                data-bs-target="#general-settings-tab-pane" type="button" role="tab"
+                aria-controls="general-settings-tab-pane" aria-selected="false">General Settings</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="units-tab" data-bs-toggle="tab" data-bs-target="#units-tab-pane" type="button"
+                role="tab" aria-controls="units-tab-pane" aria-selected="false">units & formats</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="taxes-tab" data-bs-toggle="tab" data-bs-target="#taxes-tab-pane" type="button"
+                role="tab" aria-controls="taxes-tab-pane" aria-selected="false">taxes</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="customization-tab" data-bs-toggle="tab"
+                data-bs-target="#customization-tab-pane" type="button" role="tab" aria-controls="customization-tab-pane"
+                aria-selected="false">customization</button>
+        </li>
+    </ul>
+
+    <!-- Tab Contents -->
+    <div class="tab-content" id="settings-tab-content">
+
+        <div class="tab-pane fade show active" id="business-profile-tab-pane" role="tabpanel"
+            aria-labelledby="business-profile-tab" tabindex="0">
+            <app-business-profile></app-business-profile>
+        </div>
+
+        <div class="tab-pane fade" id="general-settings-tab-pane" role="tabpanel" aria-labelledby="general-settings-tab"
+            tabindex="0">
+            <app-general-settings></app-general-settings>
+        </div>
+
+        <div class="tab-pane fade" id="units-tab-pane" role="tabpanel" aria-labelledby="units-tab" tabindex="0">
+            <app-units-formats></app-units-formats>
+        </div>
+
+        <div class="tab-pane fade" id="taxes-tab-pane" role="tabpanel" aria-labelledby="taxes-tab" tabindex="0">
+            <app-taxes></app-taxes>
+        </div>
+
+        <div class="tab-pane fade" id="customization-tab-pane" role="tabpanel" aria-labelledby="customization-tab"
+            tabindex="0">
+            <app-customization></app-customization>
+        </div>
+    </div>
+
+    <div class="btns">
+        <button class="btn" id="cancel">cancel</button>
+        <button class="btn" id="save" (click)="openSnackBar('Saved Successfully!!')">save changes</button>
+    </div>
+
+
+</div>

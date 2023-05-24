@@ -1,0 +1,34 @@
+<div id="dashboard" class="container-fluid">
+
+    <!-- Recent Activity & Clients & Team Summary-->
+    <div class="row">
+        <div id="recent-activity-section" class="col-sm-12 col-md-6">
+            <app-log-summary></app-log-summary>
+        </div>
+
+        <div id="clients-section" class="col-sm-6 col-md-3">
+            <app-clients-summary></app-clients-summary>
+        </div>
+
+        <div id="team-section" class="col-sm-6 col-md-3">
+            <app-team-summary></app-team-summary>
+        </div>
+    </div>
+
+    <!-- Invoices & Currency Summary -->
+    <div id="row2" class="row">
+        <div id="invoices-section" class="col-sm-12 col-xl-9">
+            <app-invoices-summary></app-invoices-summary>
+        </div>
+        <div id="currency-section" class="col-sm-12 col-md-6 col-xl-3">
+            <app-currency-summary></app-currency-summary>
+        </div>
+    </div>
+
+    <!-- Expenses Summary -->
+    <div class="row">
+        <div id="expenses-section" class="col-12">
+            <app-expenses-summary></app-expenses-summary>
+        </div>
+    </div>
+</div>

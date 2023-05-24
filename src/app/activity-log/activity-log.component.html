@@ -1,0 +1,39 @@
+<div id="activity-log">
+    <div class="container-fluid p-0">
+        <div id="selections">
+            <div class="row w-100">
+                <div class="col-lg-6 d-flex flex-column flex-sm-row align-items-baseline my-2 p-0">
+                    <h3 class="">Show: </h3>
+                    <!-- Date Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            {{ date_value }}
+                        </button>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" #refEl1 (click)='change_date_value(refEl1)'>all</a>
+                            </li>
+                            <li><a class="dropdown-item" #refEl2 (click)='change_date_value(refEl2)'>This Month</a>
+                            </li>
+                            <li><a class="dropdown-item" #refEl3 (click)='change_date_value(refEl3)'>Last Month</a>
+                            </li>
+                            <li><a class="dropdown-item" #refEl4 (click)='change_date_value(refEl4)'>from (date)</a>
+                            </li>
+                            <li><a class="dropdown-item" #refEl5 (click)='change_date_value(refEl5)'>to (date)</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row"
+            *ngFor="let item of logs | paginate: { itemsPerPage: itemPerPage, currentPage: page_number }; let i = index;">
+            <div class="col-md-3 col-lg-2 date-col">{{item.date}}</div>
+            <div class="col-md-9 col-lg-10">{{item.action}}</div>
+        </div>
+
+        <pagination-controls class="logs-pagination" (pageChange)="page_number = $event"></pagination-controls>
+    </div>
+</div>

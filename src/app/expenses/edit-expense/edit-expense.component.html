@@ -1,0 +1,151 @@
+<div id="edit-expense">
+    <a (click)="open_modal(content)">
+        <img src="../../assets/img/edit-regular.svg" alt="" title="Edit">
+    </a>
+</div>
+
+<ng-template #content let-modal id="edit-expense-modal">
+    <div class="modal-header">
+        <h4 class="modal-title">Edit expense</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <!-- Form -->
+        <div id="edit-expense-form">
+            <form method="GET" [formGroup]="EditExpenseForm"
+                (ngSubmit)="this.newExpense.editExpense(); modal.close(); open_modal(success);">
+                <!-- Calendar -->
+                <div class="row align-items-center my-3">
+                    <label class="col-lg-2 col-form-label">creation date</label>
+                    <div class=" col-lg-10 calendar">
+                        <div class="input-group">
+                            <input class="form-control" placeholder="Choose a Date" name="dp" ngbDatepicker
+                                #d1="ngbDatepicker" />
+                            <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d1.toggle()"
+                                type="button">
+                                <img src="../../../assets/img/calendar-alt-solid.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-lg-2 col-form-label">Client</label>
+                    <div class="col-lg-10">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Select Client
+                            </button>
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    Client 1
+                                </li>
+                                <li>
+                                    Client 2
+                                </li>
+                                <li>
+                                    Client 3
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-lg-2 col-form-label">Type</label>
+                    <div class="col-lg-10">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Select Type
+                            </button>
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    Services
+                                </li>
+                                <li>
+                                    Maintainence
+                                </li>
+                                <li>
+                                    Salary
+                                </li>
+                                <li>
+                                    Project
+                                </li>
+                                <li>
+                                    upgrade
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-lg-2 col-form-label">Currency</label>
+                    <div class="col-lg-10">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Select Currency
+                            </button>
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    EGP
+                                </li>
+                                <li>
+                                    USD
+                                </li>
+                                <li>
+                                    EUR
+                                </li>
+                                <li>
+                                    GBP
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="edit-expense_desc" class="col-lg-2 col-form-label">Description</label>
+                    <div class="col-lg-10">
+                        <textarea name="edit-expense-desc" id="edit-expense-desc" formControlName="expense_desc" rows="2"
+                            placeholder="Description"></textarea>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="edit-expense_total" class="col-lg-2 col-form-label">Total Amount</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="edit-expense_total" name="edit-expense_total"
+                            placeholder="Total Amount" formControlName="expense_total" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="cancel" class="btn btn-light"
+                        (click)="modal.close('Close click')">Cancel</button>
+
+                    <button type="submit" id="add" class="btn btn-light" [disabled]="!EditExpenseForm.valid">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #success let-modal id="success-modal">
+
+    <div class="modal-body text-center">
+        <div class="modal-header">
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <h4>
+            <img src="../../../assets/img/check-solid.svg" alt="">
+            expense edited successfully
+        </h4>
+    </div>
+    <button type="button" id="ok" class="btn btn-light" (click)="modal.close('Close click')">OK</button>
+</ng-template>

@@ -1,0 +1,311 @@
+@import '../../assets/css/variables';
+@import '../../assets/css/media-query';
+
+#invoices {
+    border-top: solid 2px $border-grey;
+    margin-top: 2rem;
+    padding: 1rem 1.5rem;
+
+    #new-invoice-btn {
+        display: flex;
+        justify-content: space-between;
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 600;
+        padding-right: 2.5rem;
+        padding-left: 2.5rem;
+        margin-bottom: 2rem;
+        width: fit-content;
+        border-radius: $button-border-radius;
+        border-color: $main-purple;
+        background-color: $main-purple;
+
+        img {
+            width: 15px;
+            margin-right: 0.5rem;
+        }
+    }
+
+    // Dropdowns
+    #selections {
+        width: 100%;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-evenly;
+
+        h3 {
+            text-transform: capitalize;
+            color: $text-grey;
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        .dropdown {
+            margin: 0 0.5rem;
+
+            @include media-breakpoint-down(sm) {
+                margin: 0.5rem 0;
+            }
+
+            button {
+                background-color: transparent;
+                color: $text-grey;
+                border: solid 1px $border-grey;
+                border-radius: $dropdown-border-radius;
+                position: relative;
+                width: 10rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                text-transform: capitalize;
+            }
+
+            ul {
+                padding: 0;
+                border-radius: $dropdown-border-radius;
+                overflow: hidden;
+
+                &.dropdown-menu {
+                    li {
+                        cursor: pointer;
+
+                        a {
+                            padding: 0.8rem 0.8rem;
+                            text-align: start;
+                            font-size: 1rem;
+                            font-weight: 600;
+                            color: $text-grey;
+                            text-transform: capitalize;
+
+                            &.dropdown-item {
+                                &:active {
+                                    background-color: $main-purple;
+                                    color: #fff;
+                                }
+
+                                &:hover {
+                                    background-color: $main-purple;
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .search {
+            display: flex;
+
+            #search-input {
+                background-color: transparent;
+                color: #959595;
+                border: solid 1px #DFDFDF;
+                border-radius: $button-border-radius;
+                border-bottom-right-radius: 0;
+                border-top-right-radius: 0;
+                border-right: none;
+                position: relative;
+                width: auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                text-transform: capitalize;
+                padding: 0.4rem 12px;
+                height: 38px;
+
+                &:focus {
+                    outline: 0;
+                }
+
+                @include media-breakpoint-down (sm) {
+                    width: 100%;
+                }
+            }
+
+            button {
+                padding: 0.4rem 12px;
+                text-align: start;
+                font-size: 1rem;
+                font-weight: 600;
+                color: $text-grey;
+                text-transform: capitalize;
+                height: 38px;
+                border-top-left-radius: 0;
+                border-top-right-radius: $button-border-radius;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: $button-border-radius;
+                border: solid 1px $border-grey;
+                border-left: none;
+                background-color: transparent;
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+    }
+
+    // Table
+    .table {
+        margin-top: 2rem;
+
+        thead {
+            border-color: $main-purple;
+            color: $main-purple
+        }
+
+        tr {
+            td {
+                &.actions {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    a {
+                        margin: auto 0.2rem;
+                        cursor: pointer;
+
+                        img {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+
+                &.capitalize {
+                    text-transform: capitalize;
+                }
+
+                &.uppercase {
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
+
+// Pagination Styles
+.invoice-pagination {
+    font-family: BellotaText-Regular, sans-serif;
+    font-size: 1rem;
+
+    ::ng-deep {
+        .ngx-pagination {
+            .current {
+                background: $main-purple;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+// Modal
+::ng-deep .modal {
+    .modal-content {
+        padding: 2rem 2rem;
+        border-radius: $button-border-radius;
+    }
+
+    .modal-header {
+        border: none;
+
+        .modal-title {
+            text-transform: capitalize;
+            color: $main-purple;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        button {
+            background: transparent url("../../assets/img/x.svg") center/1em auto no-repeat;
+        }
+    }
+
+    .modal-body {
+        h4 {
+            text-transform: capitalize;
+            color: $main-purple;
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 25px;
+                height: 25px;
+                margin: auto 1rem;
+            }
+        }
+    }
+
+    .modal-footer {
+        border: none;
+        justify-content: center;
+
+        button {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            padding-right: 7rem;
+            padding-left: 7rem;
+            margin: auto 1rem;
+            width: fit-content;
+
+            &#delete {
+                background-color: $danger-red;
+                border-radius: $button-border-radius;
+                border-color: $danger-red;
+                color: #fff;
+            }
+
+            &#cancel {
+                background-color: #fff;
+                color: $main-purple;
+                border: none;
+                padding-right: 1rem;
+                padding-left: 1rem;
+            }
+        }
+    }
+
+    #ok {
+        width: 10rem;
+        margin: auto;
+        background-color: $main-purple;
+        border-color: $main-purple;
+        font-size: 1rem;
+        color: #fff;
+        font-weight: 600;
+        border-radius: $button-border-radius;
+    }
+}
+
+// Placeholder Color
+*::-webkit-input-placeholder {
+    color: $text-grey;
+}
+
+*:-moz-placeholder {
+    color: $text-grey;
+    opacity: 1;
+}
+
+*::-moz-placeholder {
+    color: $text-grey;
+    opacity: 1;
+}
+
+*:-ms-input-placeholder {
+    color: $text-grey;
+}
+
+*::-ms-input-placeholder {
+    color: $text-grey;
+}
+
+*::placeholder {
+    color: $text-grey;
+}

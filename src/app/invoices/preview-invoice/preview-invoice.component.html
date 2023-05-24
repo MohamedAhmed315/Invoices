@@ -1,0 +1,153 @@
+<div id="preview-invoice">
+    <div id="top-bar">
+        <div id="back">
+            <a routerLink="/admin/invoices">
+                <img src="../../../assets/img/arrow-left-white.svg" alt="" title="back">
+            </a>
+            <label> Invoice #12345</label>
+        </div>
+
+        <div id="options">
+            <!-- options Dropdown -->
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <img src="../../assets/img/settings-grey.svg" alt="">
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" routerLink="/admin/new-invoice">
+                            <img src="../../../assets/img/plus-grey.svg" alt="">
+                            Create New
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="/admin/edit-invoice">
+                            <img src="../../../assets/img/print-grey.svg" alt="">
+                            Edit
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            <img src="../../../assets/img/archive-grey.svg" alt="">
+                            Archive
+                        </a>
+                    </li>
+                    <li>
+                        <app-delete-invoice></app-delete-invoice>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Save Changes Button -->
+            <div id="export-print">
+                <a id="export-btn" class="btn">
+                    <img src="../../../assets/img/file-pdf-white.svg" alt="">
+                    Export as PDF
+                </a>
+                <a id="print-btn" class="btn">
+                    <img src="../../../assets/img/print.svg" alt="" style="width: 15px;">
+                    print
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="from-to">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>to</h1>
+                <p class="company-name">
+                    Company Name
+                </p>
+
+                <p class="company-address">
+                    <span class="title">Address: </span>
+                    <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, similique!</span>
+                </p>
+
+                <p class="company-email">
+                    <span class="title">Email: </span>
+                    <span>email_address@website.com</span>
+                </p>
+
+                <p class="company-phone">
+                    <span class="title">Tel: </span>
+                    <span>+00 123456789</span>
+                </p>
+                <p class="company-phone">
+                    <span class="title">Mob: </span>
+                    <span>+00 123456789</span>
+                </p>
+            </div>
+
+            <div class="col-md-6">
+                <h1>from</h1>
+                <p class="company-name">
+                    Fifth Diminsion - 5d
+                </p>
+                <p class="company-address">
+                    <span class="title">Address: </span>
+                    <span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, dolorem!</span>
+                </p>
+                <p class="company-email">
+                    <span class="title">Email: </span>
+                    <span>email_address@website.com</span>
+                </p>
+                <p class="company-phone">
+                    <span class="title">Tel: </span>
+                    <span>+00 123456789</span>
+                </p>
+                <p class="company-phone">
+                    <span class="title">Mob: </span>
+                    <span>+00 123456789</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="details">
+        <h1>details</h1>
+        <table class="table table-borderless">
+            <tbody>
+                <tr>
+                    <th scope="row">ID</th>
+                    <td>12345</td>
+                </tr>
+                <tr>
+                    <th scope="row">creation date</th>
+                    <td>Mar 21, 2020 12:00 PM</td>
+                </tr>
+                <tr>
+                    <th scope="row">due date</th>
+                    <td>Mar 21, 2020 12:00 PM</td>
+                </tr>
+                <tr>
+                    <th scope="row">project</th>
+                    <td>Project Name</td>
+                </tr>
+                <tr>
+                    <th scope="row">description</th>
+                    <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem quam ipsum numquam porro eos
+                        fugit voluptatum totam aliquam magnam error?</td>
+                </tr>
+                <tr>
+                    <th scope="row">payment</th>
+                    <td>Bank transfer</td>
+                </tr>
+                <tr>
+                    <th scope="row">status</th>
+                    <td>Overdue</td>
+                </tr>
+                <tr>
+                    <th scope="row">total amount</th>
+                    <td class="total-amount">123,456 USD</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<app-items></app-items>

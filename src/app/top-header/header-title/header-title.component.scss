@@ -1,0 +1,25 @@
+@import '../../../assets/css/variables';
+@import '../../../assets/css/_media-query';
+
+#sidebar-btn {
+    color: $main-purple;
+    font-weight: 600;
+    font-size: 1.5rem;
+    border: none;
+    margin-top: 1.5rem;
+    // padding-left: 3rem;
+
+    @include media-breakpoint-down (sm) {
+        margin-top: 5rem;
+    }
+
+    img {
+        width: 20px;
+        margin: 0 5px;
+    }
+
+    #sidebar-arrow {
+        width: 20px;
+        margin: 0 10px;
+    }
+}

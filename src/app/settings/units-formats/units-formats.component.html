@@ -1,0 +1,78 @@
+<div class="inner-content">
+    <div class="row mt-4">
+        <label class="col-lg-2 col-form-label">Number Format</label>
+        <div class="col-lg-10">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    {{ number_format_value }}
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" #numb1 (click)='change_number_format_value(numb1)'>100,000.00</a>
+                    </li>
+                    <li><a class="dropdown-item" #numb2 (click)='change_number_format_value(numb2)'>100.000,00</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <label class="col-lg-2 col-form-label">Deciaml Places</label>
+        <div class="col-lg-10">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    {{ decimal_places_value }}
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" #decimal1 (click)='change_decimal_places_value(decimal1)'>1.00</a>
+                    </li>
+                    <li><a class="dropdown-item" #decimal2 (click)='change_decimal_places_value(decimal2)'>1,00</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <label class="col-lg-2 col-form-label">Date Format</label>
+        <div class="col-lg-10">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    {{ date_format_value }}
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" #date1 (click)='change_date_format_value(date1)'>Jan 1, 2020</a>
+                    </li>
+                    <li><a class="dropdown-item" #date2 (click)='change_date_format_value(date2)'>1 Jan, 2020</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <label class="col-lg-2 col-form-label">Time Format</label>
+        <div class="col-lg-10">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    {{ time_format_value }}
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" #time1 (click)='change_time_format_value(time1)'>12 hrs</a>
+                    </li>
+                    <li><a class="dropdown-item" #time2 (click)='change_time_format_value(time2)'>24 hrs</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>

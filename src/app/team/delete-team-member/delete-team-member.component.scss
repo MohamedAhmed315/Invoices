@@ -1,0 +1,94 @@
+@import '../../../assets/css/variables';
+
+#delete-team-member {
+    a {
+        margin: auto 0.5rem;
+        cursor: pointer;
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+::ng-deep .modal {
+    .modal-content {
+        padding: 2rem 2rem;
+        border-radius: $button-border-radius;
+    }
+
+    .modal-header {
+        border: none;
+
+        .modal-title {
+            text-transform: capitalize;
+            color: $main-purple;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        button {
+            background: transparent url("../../../assets/img/x.svg") center/1em auto no-repeat;
+        }
+    }
+
+    .modal-body {
+        h4 {
+            text-transform: capitalize;
+            color: $main-purple;
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 25px;
+                height: 25px;
+                margin: auto 1rem;
+            }
+        }
+    }
+
+    .modal-footer {
+        border: none;
+        justify-content: center;
+
+        button {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            padding-right: 7rem;
+            padding-left: 7rem;
+            margin: auto 1rem;
+            width: fit-content;
+
+            &#delete {
+                background-color: $danger-red;
+                border-radius: $button-border-radius;
+                border-color: $danger-red;
+                color: #fff;
+            }
+
+            &#cancel {
+                background-color: #fff;
+                color: $main-purple;
+                border: none;
+                padding-right: 1rem;
+                padding-left: 1rem;
+            }
+        }
+    }
+
+    #ok {
+        width: 10rem;
+        margin: auto;
+        background-color: $main-purple;
+        border-color: $main-purple;
+        font-size: 1rem;
+        color: #fff;
+        font-weight: 600;
+        border-radius: $button-border-radius;
+    }
+}

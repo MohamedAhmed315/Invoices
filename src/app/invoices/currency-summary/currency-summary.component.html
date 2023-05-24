@@ -1,0 +1,19 @@
+<div id="currency-summary">
+    <h1>currency</h1>
+    <div class="row mt-4">
+        <div class="col-6 label">EGP</div>
+        <div class="col-6 stat">1.00</div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-6 label">USD</div>
+        <div class="col-6 stat">{{ currency_obj['USD'] | number: '1.0-2' }}</div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-6 label">EUR</div>
+        <div class="col-6 stat">{{ currency_obj['EUR'] | number: '1.0-2' }}</div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-6 label">GBP</div>
+        <div class="col-6 stat">{{ currency_obj['GBP'] | number: '1.0-2' }}</div>
+    </div>
+</div>
